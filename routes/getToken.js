@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
 const getToken = require('express').Router();
 
-const patload = {
-
+const payload = {
+	data: 'physicalv4bapi'
 }
 
 getToken.get('/', (req, res) => {
-	const token = jwt.sign({data: 'physicalv4bapi'}, 'secretPhysical', { expiresIn: '1h' })
+	const token = jwt.sign(payload, 'secretPhysical', { expiresIn: '1h' })
 	res.json({status: 'ok', data: { token }})
 })
 

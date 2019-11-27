@@ -5,8 +5,6 @@ const middleware = require('./middleware/index');
 
 // require router
 const index = require('./routes/index');
-const wechat = require('./routes/wechat');
-const v4bApi = require('./routes/v4bApi');
 const getToken = require('./routes/getToken')
 
 // express middleware
@@ -26,8 +24,6 @@ app.use(middleware);
 
 // router
 app.use(index);
-app.use('/v4bApi', v4bApi);
-app.use('/wechat', wechat);
 app.use('/getToken', getToken);
 
 // listening port
