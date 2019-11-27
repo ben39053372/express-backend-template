@@ -7,8 +7,9 @@ const connectionPool = new mssql.ConnectionPool(config.mssql).connect()
 		console.log("Connected to DB")
 		return pool;
 	})
-	.catch ( err => {
-		console.log("Database Connection Error!", err);
+	// catch connetion error
+	.catch(err => {
+		console.log(err);
 	})
 
 module.exports = connectionPool
