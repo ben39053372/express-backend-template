@@ -3,13 +3,17 @@ var app = express();
 // express middleware
 app.use(express.json())
 
+var time = ''
+
 // listening port
-const port = 80
+const port = 8080
 
 // require router
 var wechat = require('./routes/wechat');
+var v4bApi = require('./routes/v4bApi');
 
-// customer middleware
+// require modules
+var db = require('./utils/connection_db')
 
 // show called time
 app.use((req, res, next)=>{
@@ -18,20 +22,18 @@ app.use((req, res, next)=>{
 })
 
 // show called path
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   console.log(req.protocol + '://' + req.get('host') + req.originalUrl);
   next();
 })
 
-// ==> end of customer middleware
-
-// customer route
-app.get('/',(req, res)=> {
+app.get('/',(req, res) => {
   res.send('index');
 })
 
-app.use('/wechat',wechat)
-// ==> end of customer route
+app.use('/v4bApi', v4bApi);
+
+app.use('/wechat',wechat);
 
 // server start()
 app.listen(port, () => {
