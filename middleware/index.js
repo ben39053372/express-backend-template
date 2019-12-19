@@ -4,6 +4,6 @@ const prefix = require('./prefix');
 const tokenHandler = require('./tokenHandler');
 
 middleware.use(prefix);
-middleware.use(tokenHandler);
+//middleware.use(tokenHandler);
 
 module.exports = middleware;

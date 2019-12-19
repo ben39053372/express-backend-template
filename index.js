@@ -5,8 +5,7 @@ const middleware = require('./middleware/index');
 
 // require router
 const index = require('./routes/index');
-const wechat = require('./routes/wechat');
-const v4bApi = require('./routes/v4bApi');
+const v4bsh_api = require('./routes/v4bsh_api/v4bsh_api');
 const getToken = require('./routes/getToken')
 
 // express middleware
@@ -15,7 +14,7 @@ app.use(express.json())
 // set header
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With,x-token");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   res.header("X-Powered-By", 'Ben39053372')
   next();
@@ -26,9 +25,8 @@ app.use(middleware);
 
 // router
 app.use(index);
-app.use('/v4bApi', v4bApi);
-app.use('/wechat', wechat);
-app.use('/getToken', getToken);
+app.use('/v4bsh_api',v4bsh_api);
+app.use('/get_token', getToken);
 
 // listening port
 const port = 8080

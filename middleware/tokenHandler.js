@@ -11,7 +11,7 @@ tokenHandler.use(expressJwt({
     } else return null
   }
 }).unless({
-  path: ['/getToken','/']
+  path: ['/get_token','/']
 }))
 
 // catch error if no token
