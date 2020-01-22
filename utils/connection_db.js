@@ -12,5 +12,21 @@ const connectionPool = new mssql.ConnectionPool(config.mssql).connect()
 		console.log(err);
 	})
 
-module.exports = connectionPool
 
+const DBHandler = (paramList, query) => {
+	connectionPool.then(pool => {
+		const result = pool.request()
+
+		paramList ? paramList.forEach(obj => {
+			result.input(obj.key, obj.type, obj.value)
+		}) : null
+		result.query(query)
+		return result
+	})
+}
+
+module.exports = connectionPool
+// module.exports = {
+// 	connectionPool,
+// 	DBHandler
+// }

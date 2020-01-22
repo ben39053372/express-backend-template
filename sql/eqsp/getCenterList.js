@@ -3,3 +3,4 @@ module.exports = () => {
 		`SELECT centerid FROM CEN_CENTER`
 	)
 }
+

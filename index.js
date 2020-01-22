@@ -5,6 +5,7 @@ const middleware = require('./middleware/index');
 
 // require router
 const index = require('./routes/index');
+const login = require('./routes/login')
 const v4bsh_api = require('./routes/v4bsh_api/v4bsh_api');
 const getToken = require('./routes/getToken')
 
@@ -24,7 +25,8 @@ app.all('*', (req, res, next) => {
 app.use(middleware);
 
 // router
-app.use(index);
+// app.use(index);
+//app.use('/login', login);
 app.use('/v4bsh_api',v4bsh_api);
 app.use('/get_token', getToken);
 
