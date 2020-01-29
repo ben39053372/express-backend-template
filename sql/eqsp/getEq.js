@@ -1,0 +1,1 @@
+module.exports = "SELECT equipmentid as id, name FROM SYS_EQUIPMENT ORDER BY equipmentid;"

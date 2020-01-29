@@ -1,0 +1,1 @@
+module.exports = "SELECT spartid as id, name FROM SYS_SPAREPART order by spartid;"
